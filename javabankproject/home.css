@@ -1,0 +1,263 @@
+
+* {
+  margin: 0;
+  padding: 0;
+box-sizing: border-box;
+  font-family:'poppins', sans-serif;
+
+}
+body{
+background-image: url(bg3.jpg);
+background-size: 100% 619px;
+background-repeat: no-repeat;
+color: #fff;
+}
+.header {
+  position: fixed; 
+ 
+width: 100%;
+margin-left: 40%;
+
+padding: 30px 10%;
+
+  display: flex;
+justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+ 
+}
+.navbar a {
+  text-shadow:0px 6px 7px #f06, 0 0 9px blue;;
+  display: inline-block;
+font-size: 20px;
+ color: aliceblue;
+  text-decoration: none;  
+font-weight: 600px;
+  margin-left: 35px;
+opacity: 0;
+  animation: slideTop .5s ease forwards;
+  animation-delay: calc(.2s * var(--i));
+  
+}
+ul.dropdown li {
+  display: block;
+
+}
+ul.dropdown li {
+  display: block;
+
+}
+ul.dropdown {
+width: 100%;
+background: #3cf;
+position: absolute;
+z-index: 999;
+display: none;
+}
+ul li a:hover {
+  background: #3cf;
+
+}ul li:hover ul.dropdown {
+display: block;
+}
+/* .navbar a.active, */
+.navbar a:hover{
+  background: linear-gradient(45deg,#f06,#3cf);
+  -webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+  
+ 
+ 
+}
+@keyframes slideTop{
+  0%{
+      opacity: 0;
+      transform: translateY(290px);
+  }
+  100%{
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.h1{
+
+  padding-left: 30px;
+  padding-top: 70px;
+ font-size: 20px;
+ position: absolute;
+
+ color:greenyellow;
+  /* box-shadow:  0 0 5px purple,
+ 0 0 50px purple;
+ background-color:black;  */
+ text-shadow: 0 0 5px yellow, 0 0 17px cyan;
+ animation: slideTop .5s ease forwards;
+
+
+}
+ .submit-button{
+  position: absolute;
+  display: flex;
+  color: white;
+  margin-left: 100px;
+  margin-top: 350px;
+  border: 1px solid rgb(245, 241, 27);
+  background:red;
+  padding: 10px;
+
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow:  0 0 5px white,
+  0 0 50px white;
+  animation: slidedo .5s ease forwards;
+
+ }
+ .submit-button:hover{
+  background: white;
+  color: blue;
+  box-shadow:0 0 5px cyan, 0 0 25px cyan,0 0 100px cyan,0 0 200px cyan;
+ }
+ 
+ .icon{
+  position: absolute;
+  font-size: 100px;
+  color:cyan;
+  margin-top: 230px;
+  margin-left: 145px;
+  animation: slidedo .5s ease forwards;
+  
+ }
+ @keyframes slidedo {
+  0%{
+      opacity: 0;
+      transform: translateX(400px);
+  }
+  100%{
+      opacity: 1;
+      transform: translateX(0px);
+  }
+}
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 20px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+/* CSS */
+.button-85 {
+  margin-left: 20px;
+  padding: 0.6em 2em;
+  margin-top: 50px;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 20px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 20px;
+}
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  width: 80%;
+  width: 500px;
+  height: 350px;
+  margin: 100px auto;
+  border-radius: 5px;
+  position: relative;
+  animation: modal-animation 0.3s ease;
+  font: bold;
+  text-align: center;
+  box-shadow:0 0 5px cyan, 0 0 25px cyan,0 0 100px red,0 0 200px cyan;
+}
+
+p{
+  margin: 10px;
+  font:bolder;
+  color: #111;
+  text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+  font-size: 40px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.popup-button {
+  margin-top: 50px;
+  padding: 10px;
+  background-color:green;
+  color: #fff;
+  border:green;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+}
+
+@keyframes modal-animation {
+  from { transform: scale(0.5); }
+  to { transform: scale(1); }
+}
+

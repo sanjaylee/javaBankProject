@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>check balance</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <link rel="stylesheet" href="balance.css">
+    <script type="text/javascript">
+        function Redirect() {
+           location.href="file:///E:/java%20bank%20project/service.html";
+        }
+     </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div action="">
+          <h1>Balance!</h1>
+           
+            
+            <div class="input-box">
+                <input onchange="changenum(this)" type="number" id="AccountNumber" name="acc_number" placeholder="Account Number"required>
+                
+              </div>
+            
+            <button onclick=getAllBal() id="registerBtn" class="submit-button">Balance</button><br><br><br>
+            <button class="submit-buttons" class="submit-button"onclick="Redirect();" >BACK</a></button>
+        </div>
+    </div>
+     <!-- Modal -->
+     <div id="myModal" class="modal"> 
+         <div class="modal-content"> 
+            <span class="close" id="closeBtn">&times;</span> 
+          
+             <h2 style="font-size: 40px;">Balance!</h2> 
+             
+           <p id="empty"></p> 
+         <p id="accname"></p>
+ 
+        <p id="accbalance"></p> 
+        
+            
+             <button id="okBtn">OK</button> 
+        </div> 
+     </div> 
+     
+    <script>
+ 
+        
+     let number;
+     function changenum(b){
+        console.log(b.value)
+        number=b.value
+     }
+     function getAllBal(){
+         console.log(number);
+      //let data={
+      //  "acc_number":number
+     // }   
+      fetch(`http://localhost:5000/Project/balance?accountNumber=${number}`, {
+     //method: "GET", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+     // body: JSON.stringify(data),
+    }).then((res)=>res.json()).then((response)=>{
+        console.log(response)
+         if(response.length==0){
+            document.getElementById("accname").innerHTML="Account not fount";
+            document.getElementById("accbalance").innerHTML="N/A";
+         }else{
+        document.getElementById("accname").innerHTML=response[0].acc_name
+        document.getElementById("accbalance").innerHTML=response[0].balance
+         }
+    
+
+    })
+     }
+
+     
+
+ const modal = document.getElementById("myModal");
+const closeBtn = document.getElementById("closeBtn");
+
+ const okBtn = document.getElementById("okBtn");
+
+ const form = document.getElementById("registerBtn");
+  form.addEventListener("click", function () {
+     showModal();
+});
+
+ function showModal() {
+     modal.style.display = "block";
+ }
+
+ closeBtn.onclick = function () {
+     modal.style.display = "none";
+ }
+
+ okBtn.onclick = function () {
+     modal.style.display = "none";
+     
+    document.getElementById("AccountNumber").value = "";
+   
+
+}
+
+ window.onclick = function (event) {
+     if (event.target === modal) {
+         modal.style.display = "none";
+     }
+ }
+
+
+
+
+    </script>
+    
+</body>
+</html>

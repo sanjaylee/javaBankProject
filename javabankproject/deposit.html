@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title> Deposit</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="stylesheet" href="deposit.css"> 
+    <script type="text/javascript">
+        function Redirect() {
+           location.href="file:///E:/java%20bank%20project/service.html";
+        }
+     </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div action="">
+          <h1>Deposit</h1>
+          <div class="input-box">
+            <input type="text" id="Name" name="acc_name" placeholder="Name" required>
+        
+          </div>
+           
+            <div class="input-box">
+                <input onchange="changenum(this)" type="number" id="AccountNumber" name="acc_number" placeholder="Account Number"required>
+                
+              </div>
+              <div class="input-box">
+                <input onchange="changebal(this)" type="number" id="Deposit" name="acc_balance" placeholder="Deposit Amount" required>
+                
+              </div>
+            <button onclick=depositamount() id="submit-button" class="submit-button">Deposit</button><br><br><br>
+            <button class="submit-buttons" class="submit-buttons"onclick="Redirect();" >BACK</a></button>
+        </div>
+    </div>
+    <div class="popup" id="success-popup">
+        <div class="popup-content">
+            <p id="Result"></p>
+            <button class="popup-button" onclick="closePopup('success-popup')">Close</button>
+        </div>
+    </div>
+    
+    <div class="popup" id="error-popup">
+        <div class="popup-content">
+            <p>Please Fill In All Fields ???</p>
+            <button class="popup-button" onclick="closePopup('error-popup')">Close</button>
+        </div>
+    </div>
+<script>
+       function openPopup(id) {
+    const popup = document.getElementById(id);
+    popup.style.display = 'flex';
+}
+
+function closePopup(id) {
+    const popup = document.getElementById(id);
+    popup.style.display = 'none';
+     
+    document.getElementById("Name").value="";
+    document.getElementById("AccountNumber").value="";
+    document.getElementById("Deposit").value="";
+
+  
+
+
+
+}
+const nameInput = document.getElementById('Name');
+const accountInput = document.getElementById('AccountNumber');
+const depositInput = document.getElementById('Deposit');
+
+const submitButton = document.getElementById('submit-button');
+
+
+submitButton.addEventListener('click', function () {
+    const Name = nameInput.value;
+    const AccountNumber= accountInput.value;
+    
+    const Deposit = depositInput.value;
+    
+
+    if ( Name&&AccountNumber && Deposit) {
+        // You can perform further processing here
+        openPopup('success-popup');
+     
+    } else {
+        openPopup('error-popup');
+        
+    }
+});
+
+
+let accnumber;
+let amount;
+     function changenum(b){
+        console.log(b.value)
+        accnumber=b.value
+     }
+
+     function changebal(b){
+        console.log(b.value)
+        amount=b.value
+     }
+     function depositamount(){
+        console.log(accnumber);
+        console.log(amount)
+
+
+        // let data={
+        //     "accountNumber":accnumber,
+        //     "deposit":amount
+        // }
+
+        fetch(`http://localhost:5000/Project/deposit?accountNumber=${accnumber}&amount=${amount}`, {
+       method: "PUT",
+    //  headers:{
+    //     "Content-Tyte":"application/josn",
+     })
+       .then(response => response.text())
+            .then(data => document.getElementById("Result").innerHTML=data)
+            .catch(error => console.error('Error:', error));
+    //  body: JSON.stringify(data),
+    //  }) .then((res) => res.json()) .then((response) => {
+    //     console.log(response)
+         //   document.getElementById("Result").innerHTML = response;
+    //     })
+    // .catch(error => {
+    //        document.getElementById("Result").textContent = error.message;
+   //    });
+//
+    }
+    </script>
+</body>
+</html>

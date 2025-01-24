@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>home</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="home.css">
+ 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+              function openPopup(id) {
+    const popup = document.getElementById(id);
+    popup.style.display = 'flex';
+        }
+           function Redirect() {
+            openPopup('success-popup');
+        }
+        function closePopup(id) {
+    const popup = document.getElementById(id);
+    popup.style.display = 'none';
+        }
+     </script>
+    <script>
+           function Redirect1() {
+           location.href="file:///E:/java%20bank%20project/service.html";
+        }
+
+    </script>
+    <script>
+        function Redirect3() {
+        location.href="file:///E:/java%20bank%20project/view.html";
+     }
+
+ </script>
+    <script>
+        function Redirect4() {
+        location.href="file:///E:/java%20bank%20project/regform.html";
+     }
+
+ </script>
+  
+    
+
+</head>
+<body>
+
+<header class="header"> 
+    
+
+     <nav class="navbar">
+        <a href="file:///E:/java%20bank%20project/home.html" style="--i:1;" 
+        
+        class="active">Home</a>
+        <a href="file:///e%3A/java%20bank%20project/regform.html" style="--i:2;">Acc-create</a>
+        <a href="file:///E:/java%20bank%20project/balance.html" style="--i:3;" >Balance</a>
+        <a href="file:///e%3A/java%20bank%20project/deposit.html" style="--i:4;" >Deposit</a>
+        <a href="file:///e%3A/java%20bank%20project/withdra.html" style="--i:4;" >Withdhar</a>
+        <a href="#" style="--i:5;" >Contact</a>
+    
+     </nav>
+    </header>
+    <div> 
+        <img style="width:160px; height: 60px;padding-left:60px; margin-top:55px;" src="new1.png"> 
+        <span class="h1">
+     <h1> MONEY HEIST<b style="color: red;" >""</b><b style="color:whitesmoke;">BANK</b></h1>
+    </span>
+     <div class="icon">
+         <i class='bx bxs-user-pin' ></i>
+         <i style="margin-top: 3px; margin-left: 105px;" class='bx bx-credit-card-front'></i>
+         
+     </div>
+     <button id="submit-button" class="submit-button"onclick="Redirect();">ACCOUNT VIEW & CREATE</button>
+     <button id="submit-button" class="submit-button" style="margin-left:370px;" onclick="Redirect1();">ATM SERVICES</button>
+    
+     <!-- <div class="btn">
+     <a href="file:///e%3A/java%20project/regform.html">ACCOUNT CREATE</a>
+     </div>
+     <div class="bts">
+     
+       <a href="file:///e%3A/java%20project/service.html">ATM SERVICES</a>
+     </div>
+         -->
+         <div class="popup" id="success-popup">
+            <div class="popup-content">
+                <p>WELCOME :)</p>
+                <p style="font-size: 30px; margin-top: 50px;">Select Your Option </p>
+                <button id="submit-button" class="button-85"onclick="Redirect3();">VIEW ACCOUNT DETALIS</button>
+                <button id="submit-button" class="button-85"  onclick="Redirect4();">CREATE ACCOUNT</button>
+                <button class="popup-button" onclick="closePopup('success-popup')">Close</button>
+            </div>
+        </div>
+    
+        
+ </div>
+</body>
+</html>

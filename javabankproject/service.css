@@ -1,0 +1,123 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+img{
+    width: 100%;
+  height: 620px;
+  background-position: center;
+  position: fixed;
+}
+.header {
+  position: fixed; 
+ 
+width: 100%;
+margin-left: 0%;
+
+padding: 30px 0%;
+
+  display: flex;
+justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+ 
+}
+.navbar a {
+  text-shadow:0px 6px 7px #f06, 0 0 9px blue;;
+  display: inline-block;
+font-size: 20px;
+ color: aliceblue;
+  text-decoration: none;  
+font-weight: 600px;
+  margin-left: 35px;
+opacity: 0;
+  animation: slideTop .8s ease forwards;
+  animation-delay: calc(.2s * var(--i));
+  
+}
+ul.dropdown li {
+  display: block;
+
+}
+ul.dropdown li {
+  display: block;
+
+}
+ul.dropdown {
+width: 100%;
+background: #3cf;
+position: absolute;
+z-index: 999;
+display: none;
+}
+ul li a:hover {
+  background: #3cf;
+
+}ul li:hover ul.dropdown {
+display: block;
+}
+/* .navbar a.active, */
+.navbar a:hover{
+  background: linear-gradient(45deg,#f06,#3cf);
+  -webkit-text-fill-color: transparent;
+ -webkit-background-clip: text;
+  
+ 
+ 
+}
+@keyframes slideTop{
+  0%{
+      opacity: 0;
+      transform: translateY(290px);
+  }
+  100%{
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+button{
+  position: absolute;
+  display: flex;
+  margin-left: 80%;
+  margin-top: 400px;
+  border: 1px solid red;
+  background:red;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow:  0 0 5px white,
+  0 0 50px white;
+  animation: slidedo .5s ease forwards;
+
+ }
+ button:hover{
+  background: white;
+  color: blue;
+  box-shadow:0 0 5px cyan, 0 0 25px cyan,0 0 100px cyan,0 0 200px cyan;
+ }
+ h1{
+  margin-left: 890px;
+  margin-top: 50px;
+  padding: 10px;
+  font-size: 35px;
+  position: absolute;
+  display: flex;
+  color:greenyellow;
+  /* box-shadow:  0 0 5px purple,
+  0 0 50px purple;
+  background-color:black; */
+  text-shadow: 0 0 10px yellow, 0 0 17px cyan;
+  animation: slideTop .8s ease forwards;
+}
+@keyframes slidedo {
+  0%{
+      opacity: 0;
+      transform: translateX(400px);
+  }
+  100%{
+      opacity: 1;
+      transform: translateX(0px);
+  }
+}
